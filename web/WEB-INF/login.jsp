@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="sait" %>
+<%@ taglib uri="/WEB-INF/sait.tld" prefix="sait1" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,16 +16,15 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <sait1:Debug>
+            Remote Host: ${pageContext.request.remoteHost}<br>
+	Session ID: ${pageContext.session.id}
+        </sait1:Debug>
+
         <h1>Remember Me Login Page!</h1>
         
         <p>
-            <form action="Login" method="POST">
-                Username: <input type="text" name="login" value="${login}"><br>
-                Password: <input type="text" name="password" value="${password}"><br>
-                <input type="checkbox" name="remember" value="remember"> Remember me<br>
-                <input type="submit" value="login">
-                ${a}
-            </form>
+            <sait:login></sait:login>
         </p>
     </body>
 </html>
